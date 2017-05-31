@@ -21,8 +21,35 @@ public class Jeu {
 				grille[i][j] = Case.VIDE;
 	}
 	
-	public void jouerCoup(int col, Joueur joueur)
+	public boolean jouerCoup(int col, Joueur joueur)
 	{
+		for(int i = 0; i < tVerticale; i++)
+			if (grille[i][col] == Case.VIDE)
+			{
+				grille[i][col] = joueur.getCouleur();
+				return true;
+			}
 		
+		return false;
+	}
+	
+	public boolean grillePleine()
+	{
+		for (int i = 0; i < tHorizontale; i++)
+			for (int j = 0; j < tVerticale; j++)
+				if (grille[i][j] == Case.VIDE)
+					return false;
+		
+		return true;
+	}
+	
+	public boolean verifierGagnant()
+	{
+		return false;
+	}
+	
+	public Case[][] getGrille()
+	{
+		return grille;
 	}
 }

@@ -9,7 +9,7 @@ public abstract class Ordinateur implements Joueur {
 	}
 	
 	@Override
-	public void Jouer(Jeu jeu) {
+	public void jouer(Jeu jeu) {
 		
 	}
 	

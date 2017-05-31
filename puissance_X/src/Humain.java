@@ -9,7 +9,7 @@ public class Humain implements Joueur {
 	}
 	
 	@Override
-	public void Jouer(Jeu jeu) {
+	public void jouer(Jeu jeu) {
 		
 	}
 	
