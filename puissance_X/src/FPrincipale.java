@@ -13,7 +13,7 @@ public class FPrincipale extends JFrame {
 	rond[][] grille;
 
 	public FPrincipale() {
-		this.setTitle("Bouton");
+		this.setTitle("Puissance 4");
 		this.setSize(800, 800);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
