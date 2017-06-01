@@ -22,7 +22,7 @@ public class Partie {
 			
 			joueurs[jCourrant].jouer(jeu);
 			
-			if (jeu.verifierGagnant())
+			if (jeu.verifierGagnant(joueurs[jCourrant]))
 				break;
 			
 			jCourrant++;
