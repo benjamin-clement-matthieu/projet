@@ -5,7 +5,7 @@ public class Partie {
 	
 	public Partie(Joueur joueur1, Joueur joueur2)
 	{
-		joueurs = new Joueur[1];
+		joueurs = new Joueur[2];
 		joueurs[0] = joueur1;
 		joueurs[1] = joueur2;
 	}
@@ -18,15 +18,25 @@ public class Partie {
 		while(true)
 		{
 			if (jeu.grillePleine())
+			{
+				System.out.println("La grille est pleine !");
 				break;
+			}
 			
 			joueurs[jCourrant].jouer(jeu);
 			
+			jeu.AfficherGrille();
+			
 			if (jeu.verifierGagnant(joueurs[jCourrant]))
+			{
+				System.out.println("Le joueur " + joueurs[jCourrant].getNom() + " : " + joueurs[jCourrant].getCouleur() + " a gagné");
 				break;
+			}
 			
 			jCourrant++;
 			jCourrant = jCourrant%2;
 		}
+		
+		System.out.println("Fini");
 	}
 }
