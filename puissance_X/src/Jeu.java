@@ -29,9 +29,10 @@ public class Jeu {
 			if (grille[col][i] == Case.VIDE)
 			{
 				grille[col][i] = joueur.getCouleur();
+				System.out.println("A joué");
 				return true;
 			}
-		
+		System.out.println("N'a pas joué");
 		return false;
 	}
 	
@@ -122,6 +123,18 @@ public class Jeu {
 		return grille;
 	}
 	
+	// Retourne la taille horizontale de la grille
+	public int getTHorizontale()
+	{
+		return tHorizontale;
+	}
+	
+	// Retourne la taille verticale de la grille
+	public int getTVerticale()
+	{
+		return tVerticale;
+	}
+	
 	public void AfficherGrille()
 	{
 		for (int i = 0; i < tVerticale; i++){
@@ -129,25 +142,24 @@ public class Jeu {
 			{
 				if (grille[j][i] == Case.VIDE)
 					System.out.print("*");
-				else
+				else if (grille[j][i] == Case.ROUGE)
 					System.out.print("X");
+				else if (grille[j][i] == Case.JAUNE)
+					System.out.print("O");
 			}
 			System.out.print("\n");
-		}		
+		}
+		
+		System.out.print("\n");
 	}
 	
     public static void main(String[] args) {
-        Humain h = new Humain("TEST", Case.ROUGE);
-        Jeu j = new Jeu();
+    	Jeu j = new Jeu();
+        IARandom r1 = new IARandom(Case.JAUNE);
+        IARandom r2 = new IARandom(Case.ROUGE);
         
-        j.jouerCoup(0, h);
-        j.jouerCoup(1, h);
-        j.jouerCoup(2, h);
-        j.jouerCoup(3, h);
+        Partie p = new Partie(r1, r2);
         
-        j.AfficherGrille();
-        System.out.println(j.verifierGagnant(h));
-        
-        
+        p.commencer();
     }
 }
