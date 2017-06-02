@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class FPrincipale extends JFrame {
-	rond[][] grille;
+	Rond[][] grille;
 
 	public FPrincipale() {
 		this.setTitle("Bouton");
@@ -18,7 +18,7 @@ public class FPrincipale extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
-		grille = new rond[6][7];
+		grille = new Rond[6][7];
 		InitGrille();
 		this.setLayout(new GridLayout(6, 7));
 		for (int i = 0; i < 6; i++)
@@ -35,7 +35,7 @@ public class FPrincipale extends JFrame {
 			for (int j = 0; j < 7; j++)
 		
 			{	
-				grille[i][j] = new rond();
+				grille[i][j] = new Rond();
 			}
 				
 	}
