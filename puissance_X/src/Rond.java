@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.Color;
 
-public class rond extends JPanel {
+public class Rond extends JPanel {
 	private Color currentColor = Color.WHITE;
 	
 	public void paintComponent(Graphics g) {

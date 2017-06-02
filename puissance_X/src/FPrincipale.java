@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class FPrincipale extends JFrame implements ActionListener {
-	rond[][] grille;
+	Rond[][] grille;
 	private JLabel label = new JLabel("Le JLabel");
 
 	public FPrincipale() {
@@ -17,7 +17,7 @@ public class FPrincipale extends JFrame implements ActionListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
-		grille = new rond[7][7];
+		grille = new Rond[7][7];
 		InitGrille();
 		this.setLayout(new GridLayout(7, 7));
 		for (int i = 0; i < 7; i++)
@@ -41,7 +41,7 @@ public class FPrincipale extends JFrame implements ActionListener {
 			for (int j = 0; j < 7; j++)
 
 			{
-				grille[i][j] = new rond();
+				grille[i][j] = new Rond();
 			}
 
 	}
