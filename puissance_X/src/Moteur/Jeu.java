@@ -7,17 +7,16 @@ public class Jeu {
 	private int tVerticale;
 	private Plateau plateau;
 	
-	public Jeu(Plateau p)
+	public Jeu(Plateau p, int tHo, int tVe)
 	{
+		tHorizontale = tHo;
+		tVerticale = tVe;
 		InitGrille();
 		plateau = p;
 	}
 	
 	private void InitGrille()
 	{
-		tHorizontale = 7;
-		tVerticale = 6;
-		
 		grille = new Case[tHorizontale][tVerticale];
 		
 		for (int i = 0; i < tHorizontale; i++)
