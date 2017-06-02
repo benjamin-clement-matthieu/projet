@@ -12,6 +12,7 @@ import IA.IARandom;
 import Moteur.Case;
 import Moteur.Humain;
 import Moteur.Partie;
+import Moteur.PuissanceMode;
 
 public class FPrincipale extends JFrame {
 	private Plateau plateau;
@@ -22,7 +23,10 @@ public class FPrincipale extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
-		plateau = new Plateau();
+		Humain benjamin = new Humain("Benjamin", Case.ROUGE);
+    	Humain matthieu = new Humain("Matthieu", Case.JAUNE);
+		
+		plateau = new Plateau(PuissanceMode.PUISSANCE4, benjamin, matthieu);
 		this.setContentPane(plateau);
 		
 		this.setVisible(true);
@@ -35,12 +39,7 @@ public class FPrincipale extends JFrame {
 	
 	public static void main(String[] args) {
     	Interface.FPrincipale f = new Interface.FPrincipale();
+    	f.getPlateau().commencerPartie();
     	
-    	Humain benjamin = new Humain("Benjamin", Case.ROUGE);
-    	Humain matthieu = new Humain("Matthieu", Case.JAUNE);
-    	
-    	Partie p = new Partie(benjamin, matthieu, f.getPlateau());
-    	
-    	p.commencer();
     }
 }

@@ -18,9 +18,14 @@ import Moteur.Case;
 public class PGrille extends JPanel {
 	Rond[][] grille;
 	public static ClickColEvent click = new ClickColEvent();
-
-	public PGrille(int width, int height) {
-		this.setPreferredSize(new Dimension(width, height));
+	private int nbLigne;
+	private int nbColonne;
+	
+	public PGrille(int nbCol, int nbLig) {
+		int dim = nbCol * nbCol * 10;
+		this.setPreferredSize(new Dimension(dim, dim));
+		nbLigne = nbLig;
+		nbColonne = nbCol;
 		initGrille();
 	}
 
@@ -35,16 +40,18 @@ public class PGrille extends JPanel {
 	}
 	
 	private void initGrille() {
-		this.setLayout(new GridLayout(7, 7));
+		
+		int tailleRond = nbColonne * 10 - 5;
+		this.setLayout(new GridLayout(nbLigne + 1, nbColonne));
 
-		grille = new Rond[7][7];
-		for (int i = 0; i < 7; i++)
-			for (int j = 0; j < 7; j++)
-				grille[i][j] = new Rond();
+		grille = new Rond[nbLigne + 1][nbColonne];
+		for (int i = 0; i < nbColonne; i++)
+			for (int j = 0; j < nbColonne; j++)
+				grille[i][j] = new Rond(tailleRond);
 
-		for (int i = 0; i < 7; i++) {
-			for (int j = 0; j < 7; j++) {
-				if (i < 6)
+		for (int i = 0; i < nbColonne; i++) {
+			for (int j = 0; j < nbColonne; j++) {
+				if (i < nbLigne)
 					this.add(grille[i][j]);
 				else {
 					String name = String.valueOf(j);
@@ -59,8 +66,8 @@ public class PGrille extends JPanel {
 	}
 
 	public void actualise(Case[][] g) {
-		for (int i = 0; i < 7; i++)
-			for (int j = 0; j < 6; j++)
+		for (int i = 0; i < nbColonne; i++)
+			for (int j = 0; j < nbLigne; j++)
 			{
 				switch(g[i][j])
 				{
