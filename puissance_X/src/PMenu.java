@@ -15,16 +15,4 @@ public class PMenu extends JPanel {
 		
 	}
 	
-	public void paintComponent(Graphics g){
-		Font font = new Font("Courier", Font.BOLD, 20);
-		g.setFont(font);
-		g.setColor(Color.red);
-		
-		Graphics2D g2d = (Graphics2D) g;
-	    FontMetrics fm = g2d.getFontMetrics();
-	    Rectangle2D r = fm.getStringBounds(TITRE, g2d);
-	    int x = (this.getWidth() - (int) r.getWidth()) / 2;
-	    
-	    g.drawString(TITRE, x, 50);
-	} 
 }

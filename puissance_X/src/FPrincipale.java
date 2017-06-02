@@ -1,46 +1,67 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-public class FPrincipale extends JFrame {
-	Rond[][] grille;
+public class FPrincipale extends JFrame implements ActionListener {
+	rond[][] grille;
+	private JLabel label = new JLabel("Le JLabel");
 
 	public FPrincipale() {
-		this.setTitle("Bouton");
-		this.setSize(800, 800);
+		this.setTitle("Puissance 4");
+		this.setSize(700, 700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
-		grille = new Rond[6][7];
+		grille = new rond[7][7];
 		InitGrille();
-		this.setLayout(new GridLayout(6, 7));
-		for (int i = 0; i < 6; i++)
+		this.setLayout(new GridLayout(7, 7));
+		for (int i = 0; i < 7; i++)
 			for (int j = 0; j < 7; j++)
-				this.getContentPane().add(grille[i][j]);
-		
+				if (i < 6)
+					this.getContentPane().add(grille[i][j]);
+				else {
+					String name = "col"+(j+1);
+					JButton b = new JButton(name);
+					b.setName(name);
+					b.addActionListener(this);
+					this.getContentPane().add(b);
+
+				}
+
 		this.setVisible(true);
-		
-		grille[2][2].setColor(Color.red);
 	}
 
 	private void InitGrille() {
 		for (int i = 0; i < 6; i++)
 			for (int j = 0; j < 7; j++)
-		
-			{	
-				grille[i][j] = new Rond();
+
+			{
+				grille[i][j] = new rond();
 			}
-				
+
+	}
+
+	public void actionPerformed(ActionEvent arg0) {
+		JButton b = (JButton) arg0.getSource();
+		String bName = b.getName();
+		if(bName.equals("col1"))
+			grille[5][0].setColor(Color.red);
+		if(bName.equals("col2"))
+			grille[5][1].setColor(Color.YELLOW);
+		if(bName.equals("col3"))
+			grille[5][2].setColor(Color.red);
+		if(bName.equals("col4"))
+			grille[5][3].setColor(Color.YELLOW);
+		if(bName.equals("col5"))
+			grille[5][4].setColor(Color.red);
+		if(bName.equals("col6"))
+			grille[5][5].setColor(Color.YELLOW);
+		if(bName.equals("col7"))
+			grille[5][6].setColor(Color.red);
 	}
 }
-
-
-
-
