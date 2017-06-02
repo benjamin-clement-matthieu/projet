@@ -47,8 +47,8 @@ public class PGrille extends JPanel {
 				if (i < 6)
 					this.add(grille[i][j]);
 				else {
-					String name = "col" + (j + 1);
-					JButton b = new JButton(name);
+					String name = String.valueOf(j);
+					JButton b = new JButton();
 					b.setName(name);
 					b.addActionListener(click);
 					this.add(b);
