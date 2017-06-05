@@ -26,7 +26,7 @@ public class IAMin_Max extends Ordinateur {
         if(jeu[i][j] == 0)
         {
           jeu[i][j] == 1;
-          tmp = Min(jeu, profondeur-1);
+          tmp = min(jeu, profondeur-1);
           
           if(tmp > max || ((tmp == max) && (rand()%2 == 0))
           {
