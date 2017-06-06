@@ -1,12 +1,11 @@
 package Interface;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import Moteur.Case;
 
 public class Rond extends JPanel {
 	private Color currentColor = Color.WHITE;
@@ -23,10 +22,17 @@ public class Rond extends JPanel {
 		g.fillOval(2, 2, dimension, dimension);
 	}
 	
-	public void setColor(Color color)
+	public void setColor(Case color)
 	{
-		currentColor = color;
-		
+		switch(color)
+		{
+			case ROUGE:
+				currentColor = Color.RED;
+				break;
+			case JAUNE:
+				currentColor = Color.YELLOW;
+				break;
+		}
 		this.repaint();
 	}
 }

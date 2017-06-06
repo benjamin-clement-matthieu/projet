@@ -69,15 +69,7 @@ public class PGrille extends JPanel {
 		for (int i = 0; i < nbColonne; i++)
 			for (int j = 0; j < nbLigne; j++)
 			{
-				switch(g[i][j])
-				{
-					case ROUGE:
-						grille[j][i].setColor(Color.RED);
-						break;
-					case JAUNE:
-						grille[j][i].setColor(Color.YELLOW);
-						break;
-				}
+				grille[j][i].setColor(g[i][j]);
 			}
 	}
 }
