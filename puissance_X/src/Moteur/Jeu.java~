@@ -169,4 +169,3 @@ public class Jeu {
 		System.out.print("\n");
 	}
 }
-

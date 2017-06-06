@@ -40,4 +40,3 @@ public class Humain implements Joueur {
 	}
 
 }
-

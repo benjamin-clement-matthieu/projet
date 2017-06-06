@@ -43,4 +43,3 @@ public class ClickColEvent implements ActionListener {
 		return selectedCol;
 	}
 }
-

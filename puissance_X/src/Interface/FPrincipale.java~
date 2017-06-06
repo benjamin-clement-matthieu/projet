@@ -44,4 +44,3 @@ public class FPrincipale extends JFrame {
     	p.commencer();
     }
 }
-

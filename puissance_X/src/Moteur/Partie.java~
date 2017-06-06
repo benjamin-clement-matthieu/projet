@@ -44,4 +44,3 @@ public class Partie {
 	}
 }
 // x % a = x -(a * int(x/a))
-
