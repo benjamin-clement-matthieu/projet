@@ -1,4 +1,6 @@
 package Moteur;
+import java.util.ArrayList;
+
 import Interface.Plateau;
 
 public class Jeu {
@@ -11,8 +13,9 @@ public class Jeu {
 	{
 		tHorizontale = tHo;
 		tVerticale = tVe;
-		InitGrille();
 		plateau = p;
+		
+		InitGrille();
 	}
 	
 	private void InitGrille()
@@ -46,13 +49,8 @@ public class Jeu {
 	
 	public boolean grillePleine()
 	{
-		// On regarde chaque case, si une est vide la grille n'est pas pleine.
-		for (int i = 0; i < tHorizontale; i++)
-			for (int j = 0; j < tVerticale; j++)
-				if (grille[i][j] == Case.VIDE)
-					return false;
-		
-		return true;
+		// S'il n'y a pas de coup possible, la grille est pleine
+		return getCoupsPossible().size() == 0;
 	}
 	
 	public boolean verifierGagnant(Joueur joueur)
@@ -67,6 +65,18 @@ public class Jeu {
 							return true;
 				}
 		return false;
+	}
+	
+	// Retourne les coups possible
+	public ArrayList<Integer> getCoupsPossible()
+	{
+		ArrayList<Integer> tmp = new ArrayList<Integer>();
+		// On regarde chaque case de la première ligne, si une est vide la grille le coup est possible.
+		for (int i = 0; i < tHorizontale; i++)
+			if (grille[i][0] == Case.VIDE)
+					tmp.add(i);
+		
+		return tmp;
 	}
 	
 	// Permet de vérifier s'il a y 3 jetons alignés dans une direction
@@ -148,23 +158,5 @@ public class Jeu {
 	public int getTVerticale()
 	{
 		return tVerticale;
-	}
-	
-	public void AfficherGrille()
-	{
-		for (int i = 0; i < tVerticale; i++){
-			for (int j = 0; j < tHorizontale; j++)
-			{
-				if (grille[j][i] == Case.VIDE)
-					System.out.print("*");
-				else if (grille[j][i] == Case.ROUGE)
-					System.out.print("X");
-				else if (grille[j][i] == Case.JAUNE)
-					System.out.print("O");
-			}
-			System.out.print("\n");
-		}
-		
-		System.out.print("\n");
 	}
 }
