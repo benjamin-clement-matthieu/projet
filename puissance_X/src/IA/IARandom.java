@@ -1,4 +1,5 @@
 package IA;
+import java.util.ArrayList;
 import java.util.Random;
 
 import Moteur.Case;
@@ -14,11 +15,10 @@ public class IARandom extends Ordinateur {
 	
 	@Override
 	public void jouer(Jeu jeu) {
-		int random = new Random().nextInt(jeu.getTHorizontale());
+		ArrayList<Integer> coups = jeu.getCoupsPossible();
+		int random = new Random().nextInt(coups.size());
 		
-		while(!jeu.jouerCoup(random, this)){
-			random = new Random().nextInt(jeu.getTHorizontale());
-		}
+		jeu.jouerCoup(coups.get(random), this);
 	}
 	
 	
